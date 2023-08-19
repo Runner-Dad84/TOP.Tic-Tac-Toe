@@ -1,4 +1,15 @@
-p {
-    color: blue;
-    font-size: 36px;
+#gameBoard {
+    height: 90vh;
+    width: 90vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    outline: none;
 }
+
+.row, .column {
+    height: 30vh;
+    width: 30vw;
+    outline: 2px solid black;;
+}
+
+
