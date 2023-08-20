@@ -27,9 +27,10 @@ const player = (name, sign) => {
     let playerSign = () => sign;
     let playerTest = () => console.log(`${name} has this sign ${sign}`);
     let playerChoice = () => {
-        document.querySelectorAll('.column').forEach(item => {
-            item.addEventListener('mouseenter', event => {
-                console.log("click test")
+        let square = document.querySelectorAll('.column');
+        square.forEach(item => {
+            item.addEventListener('click', event => {
+                item.innerText = sign;
             } )
         })
     }
