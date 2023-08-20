@@ -1,6 +1,7 @@
 
-//create object game board with module
+//create object game board with module IIFE
 //for loop create 3 rows, for loop create 3 columns
+//add class to board boxes and unique id for each square
 //manipulates the DOM to draw board using grid
 
 const gameBoard = (() => {
@@ -13,6 +14,7 @@ const gameBoard = (() => {
         for (j = 0; j < 3; j++) {
             let column = document.createElement("div");
             column.classList = "column";
+            column.id = `${[i+1]},${[j+1]}`;
             row.appendChild(column);
         };
     }
@@ -25,7 +27,6 @@ const gameBoard = (() => {
 const player = (name, sign) => {
     let playerName = () => name;
     let playerSign = () => sign;
-    let playerTest = () => console.log(`${name} has this sign ${sign}`);
     let playerChoice = () => {
         let square = document.querySelectorAll('.column');
         square.forEach(item => {
@@ -34,10 +35,11 @@ const player = (name, sign) => {
             } )
         })
     }
-    return { playerName, playerSign, playerChoice, playerTest }
+    return { playerName, playerSign, playerChoice }
 };
 
 const player1 = player("Player 1", "X");
+const player2 = player("Player 2", "O");
 
 //create gameflow object with module
 //
