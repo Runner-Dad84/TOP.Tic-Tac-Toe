@@ -1,8 +1,7 @@
 
-//create object game board
-//factory function
-//for loop create 3 rows, for lipp create 3 columns
-//manipulates the DOM to draw board
+//create object game board with module
+//for loop create 3 rows, for loop create 3 columns
+//manipulates the DOM to draw board using grid
 
 const gameBoard = (() => {
     const board = document.querySelector('#gameBoard');
@@ -18,3 +17,26 @@ const gameBoard = (() => {
         };
     }
 })();
+
+//create objects for players using factory function
+//assign name and sign
+//click event creates player sign X or O
+
+const player = (name, sign) => {
+    let playerName = () => name;
+    let playerSign = () => sign;
+    let playerTest = () => console.log(`${name} has this sign ${sign}`);
+    let playerChoice = () => {
+        document.querySelectorAll('.column').forEach(item => {
+            item.addEventListener('mouseenter', event => {
+                console.log("click test")
+            } )
+        })
+    }
+    return { playerName, playerSign, playerChoice, playerTest }
+};
+
+const player1 = player("Player 1", "X");
+
+//create gameflow object with module
+//
