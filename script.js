@@ -24,18 +24,22 @@ const gameBoard = (() => {
 //assign name and sign
 //click event creates player sign X or O
 
+//***wokring on storing player  */
+
 const player = (name, sign) => {
     let playerName = () => name;
     let playerSign = () => sign;
+    let playerScore = [];
     let playerChoice = () => {
         let square = document.querySelectorAll('.column');
         square.forEach(item => {
             item.addEventListener('click', event => {
                 item.innerText = sign;
-            } )
+                playerScore.push(item.id);
+            })
         })
     }
-    return { playerName, playerSign, playerChoice }
+    return { playerName, playerSign, playerChoice, playerScore }
 };
 
 const player1 = player("Player 1", "X");
