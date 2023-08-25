@@ -1,4 +1,3 @@
-
 //create object game board with module IIFE
 //for loop create 3 rows, for loop create 3 columns
 //add class to board boxes and unique id for each square
@@ -20,30 +19,41 @@ const gameBoard = (() => {
     }
 })();
 
+//event listener for player 1 click of game board
+//if space empty add sign to gameboard and send space coordinates to player score
+//if space filled notify user
+
+const playerSelection = (() => {
+    let column = document.querySelectorAll('.column');
+    column.forEach(item => {
+        item.addEventListener('click', () => {
+            if (item.innerText === "") {
+                item.innerText = player1.playerSign();
+                player1.playerScore.push(item.id);
+            } else {
+                alert("This space is taken!");
+            }
+        })
+    })
+})();
+
 //create objects for players using factory function
 //assign name and sign
 //click event creates player sign X or O
-
-//***wokring on storing player  */
 
 const player = (name, sign) => {
     let playerName = () => name;
     let playerSign = () => sign;
     let playerScore = [];
-    let playerChoice = () => {
-        let square = document.querySelectorAll('.column');
-        square.forEach(item => {
-            item.addEventListener('click', event => {
-                item.innerText = sign;
-                playerScore.push(item.id);
-            })
-        })
-    }
-    return { playerName, playerSign, playerChoice, playerScore }
+    return { playerName, playerSign, playerScore }
 };
 
 const player1 = player("Player 1", "X");
-const player2 = player("Player 2", "O");
+/*const player2 = player("Player 2", "O"); */
 
-//create gameflow object with module
-//
+
+
+//score the game as players make picks
+//loop over playerScore: check for row using parseInt , push last item (-1) to array and check,  
+//parseInt(player1.playerScore[0]);
+
