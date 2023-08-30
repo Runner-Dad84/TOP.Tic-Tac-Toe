@@ -5,17 +5,21 @@
 
 const gameBoard = (() => {
     const board = document.querySelector('#gameBoard');
+    let grid = [];
+    value = 0;
     for (i = 0; i < 3; i++) {
         let row = document.createElement("div");
         row.classList = "row";
         board.appendChild(row);
+        grid[i] = [];
         
         for (j = 0; j < 3; j++) {
             let column = document.createElement("div");
             column.classList = "column";
-            column.id = `${[i+1]},${[j+1]}`;
             row.appendChild(column);
-        };
+            grid[i][j] = value++;   
+            column.id = 1 + grid[i][j];
+        }
     }
 })();
 
@@ -29,7 +33,8 @@ const playerSelection = (() => {
         item.addEventListener('click', () => {
             if (item.innerText === "") {
                 item.innerText = player1.playerSign();
-                player1.playerScore.push(item.id);
+                player1.playerScore.push(Number(item.id));
+                return player1.playerScore;
             } else {
                 alert("This space is taken!");
             }
@@ -47,13 +52,22 @@ const player = (name, sign) => {
     let playerScore = [];
     return { playerName, playerSign, playerScore }
 };
-
+const player2 = player("Player 2", "O"); 
 const player1 = player("Player 1", "X");
-/*const player2 = player("Player 2", "O"); */
 
+//game solutions//
 
-
-//score the game as players make picks
-//loop over playerScore: check for row using parseInt , push last item (-1) to array and check,  
-//parseInt(player1.playerScore[0]);
-
+const solutions = (() => {
+  const solutionSets = () => {
+    [0, 1, 2]; /*rows*/
+    [3, 4, 5];
+    [6, 7, 8];
+    [0, 3, 6]; /*columns*/
+    [1, 4, 7];
+    [2, 5, 8];
+    [0, 4, 8]; /*diagnals*/
+    [2, 4, 6];
+  };
+  return { solutionSets };
+}
+)();
