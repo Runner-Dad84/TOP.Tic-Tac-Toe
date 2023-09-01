@@ -58,16 +58,28 @@ const player1 = player("Player 1", "X");
 //game solutions//
 
 const solutions = (() => {
-  const solutionSets = () => {
-    [0, 1, 2]; /*rows*/
-    [3, 4, 5];
-    [6, 7, 8];
-    [0, 3, 6]; /*columns*/
-    [1, 4, 7];
-    [2, 5, 8];
-    [0, 4, 8]; /*diagnals*/
-    [2, 4, 6];
-  };
-  return { solutionSets };
+  return [
+    [1, 2, 3], /*columns*/
+    [4, 5, 6],
+    [7, 8, 9],
+    [1, 4, 7], /*rows*/
+    [2, 5, 8],
+    [3, 6, 9],
+    [1, 5, 9], /*diagnals*/
+    [3, 5, 7]
+  ];
 }
 )();
+
+//take player score and compare it to each winner scenario. If the player score contains
+//a match of any three it is a win!
+
+function scoreGame (solutions, playerScore) {
+for (i = 0; i < solutions.length; i++) {
+    let compare = solutions[i].every(element => playerScore.includes(element));
+    console.log(compare);
+    if (compare === true) {
+        return console.log("You win!");
+    };
+}
+};
