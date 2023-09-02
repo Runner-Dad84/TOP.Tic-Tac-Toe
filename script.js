@@ -42,6 +42,23 @@ const playerSelection = (() => {
     })
 })();
 
+function computer () {
+    let pick = Math.ceil(Math.random()*9);
+    let selection = document.getElementById(`${pick}`);
+    console.log(pick);
+    if (selection.innerText === "") {
+        selection.innerText = player2.playerSign();
+        player2.playerScore.push(pick)
+    } else {
+        console.log(pick);
+        computer();
+    }
+    //random selection of square
+    //if square availble assign sign
+    //if square not available run again
+}
+
+
 //create objects for players using factory function
 //assign name and sign
 //click event creates player sign X or O
@@ -79,7 +96,19 @@ for (i = 0; i < solutions.length; i++) {
     let compare = solutions[i].every(element => playerScore.includes(element));
     console.log(compare);
     if (compare === true) {
-        return console.log("You win!");
+        return console.log("You win!")
     };
 }
 };
+
+//player 1 has a turn, picks from available spaces then player 2 has a turn
+function turn (player) {
+    let turn = true;
+    if (turn = true){
+        player1.playerSelection();
+    } else {
+
+    }
+
+    return !turn;
+}
