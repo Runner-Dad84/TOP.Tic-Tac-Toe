@@ -49,6 +49,8 @@ function computer () {
     if (selection.innerText === "") {
         selection.innerText = player2.playerSign();
         player2.playerScore.push(pick)
+    } else if (player1.playerScore.length + player2.playerScore.length === 9) {
+        return console.log("It is a draw!")
     } else {
         console.log(pick);
         computer();
