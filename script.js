@@ -34,6 +34,8 @@ const playerSelection = (() => {
             if (item.innerText === "") {
                 item.innerText = player1.playerSign();
                 player1.playerScore.push(Number(item.id));
+                scoreGame(solutions, player1.playerScore);
+                setTimeout(turn, 2000);
                 return player1.playerScore;
             } else {
                 alert("This space is taken!");
@@ -42,6 +44,11 @@ const playerSelection = (() => {
     })
 })();
 
+//computer random selection of board square
+//if square availble assign O
+//if square not available run again
+//if entire board filled declare draw
+
 function computer () {
     let pick = Math.ceil(Math.random()*9);
     let selection = document.getElementById(`${pick}`);
@@ -49,17 +56,15 @@ function computer () {
     if (selection.innerText === "") {
         selection.innerText = player2.playerSign();
         player2.playerScore.push(pick)
+        scoreGame(solutions, player2.playerScore);
     } else if (player1.playerScore.length + player2.playerScore.length === 9) {
         return console.log("It is a draw!")
     } else {
         console.log(pick);
         computer();
     }
-    //random selection of square
-    //if square availble assign sign
-    //if square not available run again
+    
 }
-
 
 //create objects for players using factory function
 //assign name and sign
@@ -96,21 +101,18 @@ const solutions = (() => {
 function scoreGame (solutions, playerScore) {
 for (i = 0; i < solutions.length; i++) {
     let compare = solutions[i].every(element => playerScore.includes(element));
-    console.log(compare);
     if (compare === true) {
-        return console.log("You win!")
+        if (player1.playerScore.length > player2.playerScore.length){
+            return console.log("Player 1 wins!");
+        } else if (player1.playerScore.length === player2.playerScore.length) {"Computer wins"};
     };
 }
 };
 
 //player 1 has a turn, picks from available spaces then player 2 has a turn
-function turn (player) {
-    let turn = true;
-    if (turn = true){
-        player1.playerSelection();
-    } else {
+function turn () {
+    if (player1.playerScore.length > player2.playerScore.length) {
+        computer();
+    }};
 
-    }
-
-    return !turn;
-}
+    
