@@ -114,6 +114,17 @@ for (i = 0; i < solutions.length; i++) {
 function turn () {
     if (player1.playerScore.length > player2.playerScore.length) {
         computer();
-    }};
+    }
+};
+
+//reset gameboard and score
+function newGame () {
+    player1.playerScore = [];
+    player2.playerScore = [];
+    let column = document.querySelectorAll('.column');
+    column.forEach(item => { 
+        item.innerText = "";
+    })
+}
 
     
