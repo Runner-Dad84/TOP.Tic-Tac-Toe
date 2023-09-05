@@ -58,7 +58,7 @@ function computer () {
         player2.playerScore.push(pick)
         scoreGame(solutions, player2.playerScore);
     } else if (player1.playerScore.length + player2.playerScore.length === 9) {
-        return console.log("It is a draw!")
+        alert("It is a draw!")
     } else {
         console.log(pick);
         computer();
@@ -103,8 +103,9 @@ for (i = 0; i < solutions.length; i++) {
     let compare = solutions[i].every(element => playerScore.includes(element));
     if (compare === true) {
         if (player1.playerScore.length > player2.playerScore.length){
-            return console.log("Player 1 wins!");
-        } else if (player1.playerScore.length === player2.playerScore.length) {"Computer wins"};
+            alert("Player 1 wins!");
+        } else if (player1.playerScore.length === player2.playerScore.length) 
+        {alert("Computer wins")};
     };
 }
 };
