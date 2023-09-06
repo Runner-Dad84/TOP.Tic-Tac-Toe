@@ -60,7 +60,6 @@ const userName = (() => {
 function computer () {
     let pick = Math.ceil(Math.random()*9);
     let selection = document.getElementById(`${pick}`);
-    console.log(pick);
     if (selection.innerText === "") {
         selection.innerText = player2.playerSign();
         player2.playerScore.push(pick)
@@ -69,7 +68,7 @@ function computer () {
         alert("It is a draw!")
     } else {
         computer();
-    }
+    };
     
 }
 
@@ -110,7 +109,8 @@ for (i = 0; i < solutions.length; i++) {
     let compare = solutions[i].every(element => playerScore.includes(element));
     if (compare === true) {
         if (player1.playerScore.length > player2.playerScore.length){
-            alert(`${userName.greeting} wins!`);
+            newGame();
+            return alert(`${userName.greeting} wins!`);
         } else if (player1.playerScore.length === player2.playerScore.length) 
         {alert("Computer wins")};
     };
