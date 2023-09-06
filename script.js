@@ -35,7 +35,7 @@ const playerSelection = (() => {
                 item.innerText = player1.playerSign();
                 player1.playerScore.push(Number(item.id));
                 scoreGame(solutions, player1.playerScore);
-                setTimeout(turn, 2000);
+                setTimeout(turn, 1000);
                 return player1.playerScore;
             } else {
                 alert("This space is taken!");
@@ -44,8 +44,16 @@ const playerSelection = (() => {
     })
 })();
 
+//Set player 1 name.
+
+const userName = (() => {
+    let greeting = prompt("Enter player name or nickname");
+    return {greeting}
+})();
+
+
 //computer random selection of board square
-//if square availble assign O
+//if square available assign O
 //if square not available run again
 //if entire board filled declare draw
 
@@ -60,7 +68,6 @@ function computer () {
     } else if (player1.playerScore.length + player2.playerScore.length === 9) {
         alert("It is a draw!")
     } else {
-        console.log(pick);
         computer();
     }
     
@@ -103,7 +110,7 @@ for (i = 0; i < solutions.length; i++) {
     let compare = solutions[i].every(element => playerScore.includes(element));
     if (compare === true) {
         if (player1.playerScore.length > player2.playerScore.length){
-            alert("Player 1 wins!");
+            alert(`${userName.greeting} wins!`);
         } else if (player1.playerScore.length === player2.playerScore.length) 
         {alert("Computer wins")};
     };
