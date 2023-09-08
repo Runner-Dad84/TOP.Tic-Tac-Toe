@@ -1,3 +1,9 @@
+:root {
+
+    --board-lines:solid black 2px;
+}
+
+
 body {
     display: flex;
     justify-items: center;
@@ -11,16 +17,42 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     outline: none;
+    margin: 5vh;
 }
 
 .row, .column {
     height: 20vh;
     width: 20vw;
-    outline: 2px solid black;;
     font-size: 18vh;
     text-align: center;
 }
 
-
-
+[id="1"] {
+    border-bottom: var(--board-lines);
+    border-right: var(--board-lines);
+}
+[id="2"] {
+    border-right: var(--board-lines);
+}
+[id="3"] {
+    border-top: var(--board-lines);
+    border-right: var(--board-lines);
+}
+[id="4"] {
+    border-bottom: var(--board-lines);
+}
+[id="6"] {
+    border-top: var(--board-lines);
+}
+[id="7"] {
+    border-bottom: var(--board-lines);
+    border-left: var(--board-lines);
+}
+[id="8"] {
+    border-left: var(--board-lines);
+}
+[id="9"] {
+    border-top: var(--board-lines);
+    border-left: var(--board-lines);
+}
 
