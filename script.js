@@ -35,7 +35,7 @@ const playerSelection = (() => {
                 item.innerText = player1.playerSign();
                 player1.playerScore.push(Number(item.id));
                 scoreGame(solutions, player1.playerScore);
-                setTimeout(turn, 1000);
+                setTimeout(turn, 500);
                 return player1.playerScore;
             } else {
                 alert("This space is taken!");
