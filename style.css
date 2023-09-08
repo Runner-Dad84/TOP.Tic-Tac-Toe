@@ -1,6 +1,7 @@
 :root {
 
     --board-lines:solid black 2px;
+    --font:'Times New Roman', Times, serif;
 }
 
 
@@ -20,11 +21,28 @@ body {
     margin: 5vh;
 }
 
+h1 {
+    font-size: 5vh;
+    font-family:var(--font);
+}
+span {
+    font-size: 3vh;
+    font-style: italic;
+}
+
 .row, .column {
     height: 20vh;
     width: 20vw;
     font-size: 18vh;
     text-align: center;
+}
+
+#newGame {
+    background-color: whitesmoke;
+    border: var(--board-lines);
+    font-family:var(--font);
+    font-size: 2vh;
+    border-radius: 5px;
 }
 
 [id="1"] {
