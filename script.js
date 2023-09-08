@@ -51,6 +51,11 @@ const userName = (() => {
     return {greeting}
 })();
 
+const name = (()=> {
+    let playerName = document.getElementById("playerName");
+    playerName.innerText = userName.greeting;
+})();
+
 
 //computer random selection of board square
 //if square available assign O
