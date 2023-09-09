@@ -41,6 +41,14 @@ const playerSelection = (() => {
                 alert("This space is taken!");
             }
         })
+        Array.from(column).forEach(function(event){
+            event.addEventListener('mouseenter', () => {
+            event.style.backgroundColor = "lightgray";
+        })})
+        Array.from(column).forEach(function(event){
+            event.addEventListener('mouseout', () => {
+            event.style.backgroundColor = "";
+        })})
     })
 })();
 
