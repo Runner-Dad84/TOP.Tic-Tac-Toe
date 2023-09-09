@@ -43,7 +43,7 @@ const playerSelection = (() => {
         })
         Array.from(column).forEach(function(event){
             event.addEventListener('mouseenter', () => {
-            event.style.backgroundColor = "lightgray";
+            event.style.backgroundColor = "lightblue";
         })})
         Array.from(column).forEach(function(event){
             event.addEventListener('mouseout', () => {
